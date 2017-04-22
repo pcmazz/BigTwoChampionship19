@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends BTActivity {
 
     public static Intent getCallingIntent(Context context){
         Intent intent = new Intent(context, GameActivity.class);
@@ -16,5 +16,9 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+    }
+
+    private void testFrag(){
+
     }
 }

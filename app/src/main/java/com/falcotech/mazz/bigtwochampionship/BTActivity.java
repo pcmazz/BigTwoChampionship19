@@ -27,8 +27,7 @@ public abstract class BTActivity extends AppCompatActivity {
     }
 
     protected BTApplicationComponent getApplicationComponent() {
-        //return ((BTApplicationComponent)getApplication()).getApplicationComponent();
-        return null;
+        return ((BTApplication)getApplication()).getApplicationComponent();
     }
 
     protected BTActivityModule getActivityModule() {

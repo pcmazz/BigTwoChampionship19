@@ -16,7 +16,9 @@ public class BTApplication extends Application {
     }
 
     private void initialize(){
-
+        this.applicationComponent = DaggerBTApplicationComponent.builder()
+                .bTApplicationModule(new BTApplicationModule(this))
+                .build();
     }
 
     private void installLeakCanary(){
