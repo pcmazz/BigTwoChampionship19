@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "847914297816",
+    "firebase_url": "https://big-two-championship.firebaseio.com",
+    "project_id": "big-two-championship",
+    "storage_bucket": "big-two-championship.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847914297816:android:ca9f693d853f0d7a",
+        "android_client_info": {
+          "package_name": "com.falcotech.mazz.bigtwochampionship"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "847914297816-3d4p52p05kta68onfir7qhp4n4fcjldc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.falcotech.mazz.bigtwochampionship",
+            "certificate_hash": "39d065ea2014374ce835b948f8ce410ad1db6bf6"
+          }
+        },
+        {
+          "client_id": "847914297816-0m2fns9n2ut86tal24iaph3snvv2ch6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc4szqfl5TrLFRve-GYLViMB3_FozT_S0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "847914297816-0m2fns9n2ut86tal24iaph3snvv2ch6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
