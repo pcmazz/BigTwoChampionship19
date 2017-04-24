@@ -18,4 +18,5 @@ public interface BTApplicationComponent {
     Context context();
     ThreadExecutor threadExecutor();
     PostExecutionThread postExecutionThread();
+    GameRepository gameRepository();
 }

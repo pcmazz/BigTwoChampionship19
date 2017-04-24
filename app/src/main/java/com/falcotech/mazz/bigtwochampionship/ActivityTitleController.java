@@ -9,7 +9,7 @@ import javax.inject.Inject;
  */
 
 @PerActivity
-public class ActivityTitleController {
+public class   ActivityTitleController {
     private final Activity activity;
 
     @Inject

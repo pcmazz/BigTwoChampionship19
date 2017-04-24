@@ -2,6 +2,7 @@ package com.falcotech.mazz.bigtwochampionship;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +14,14 @@ import static android.view.Gravity.CENTER;
 
 /**
  * Created by phima on 4/21/2017.
+ * MAIN IDEA NOTES
+ * Using dagger2 for structure create discrete references to
  */
 
 public class TestGameFragment extends BTFragment{
+
+    @Inject
+    GetGamePresenter getGamePresenter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,5 +51,16 @@ public class TestGameFragment extends BTFragment{
         if(this.activityTitleController != null){
             this.activityTitleController.setTitle("ROCK HARD COCKS");
         }
+        rhc();
     }
+
+    private void rhc(){
+        if(this.getGamePresenter != null){
+            getGamePresenter.initialize();
+        }else{
+            Log.d("DEBUG", "getGamePresenter = nhull");
+        }
+
+    }
+
 }

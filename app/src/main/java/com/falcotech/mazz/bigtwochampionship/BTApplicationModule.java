@@ -36,4 +36,10 @@ public class BTApplicationModule {
     PostExecutionThread providePostExecutionThread(UIThread uiThread) {
         return uiThread;
     }
+
+    @Provides
+    @Singleton
+    GameRepository providesGameRepository(GameDataRepository gameDataRepository){
+        return gameDataRepository;
+    }
 }
