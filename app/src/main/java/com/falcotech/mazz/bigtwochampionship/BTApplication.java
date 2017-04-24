@@ -11,6 +11,13 @@ import com.squareup.leakcanary.LeakCanary;
 public class BTApplication extends Application {
     private BTApplicationComponent applicationComponent;
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        this.initialize();
+        this.installLeakCanary();
+    }
+
     public BTApplicationComponent getApplicationComponent(){
         return this.applicationComponent;
     }

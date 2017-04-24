@@ -16,13 +16,18 @@ import static android.view.Gravity.CENTER;
  */
 
 public class TestGameFragment extends BTFragment{
-    @Inject
-    ActivityTitleController titleController;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.getComponent(GameActivityComponent.class).inject(this);
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ((GameActivity)getActivity()).addFragment(android.R.id.content, this);
+        //((BTActivity)this.getActivity()).component().inject(this);
+        //activityTitleController.setTitle("COCKS");
     }
 
     @Nullable
@@ -37,6 +42,8 @@ public class TestGameFragment extends BTFragment{
     @Override
     public void onResume() {
         super.onResume();
-        titleController.setTitle("ROCK HARD COCKS");
+        if(this.activityTitleController != null){
+            this.activityTitleController.setTitle("ROCK HARD COCKS");
+        }
     }
 }

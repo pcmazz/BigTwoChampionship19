@@ -11,16 +11,21 @@ import javax.inject.Inject;
  */
 
 public abstract class BTActivity extends AppCompatActivity {
+
     @Inject
     Navigator navigator;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getApplicationComponent().inject(this);
+
     }
 
     protected void addFragment(int containerId, Fragment fragment) {
+        //component().inject(fragment);
+        //component().inject(new ActivityTitleController(this));
         getSupportFragmentManager().beginTransaction()
                 .add(containerId, fragment)
                 .commit();
