@@ -4,7 +4,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
+import com.falcotech.mazz.bigtwochampionship.rx_prefs.RxSharedPreferences;
+
 import javax.inject.Inject;
+
+import butterknife.ButterKnife;
 
 /**
  * Created by phima on 4/21/2017.
@@ -14,6 +18,9 @@ public abstract class BTActivity extends AppCompatActivity {
 
     @Inject
     Navigator navigator;
+
+    @Inject
+    RxSharedPreferences rxSharedPreferences;
 
 
     @Override

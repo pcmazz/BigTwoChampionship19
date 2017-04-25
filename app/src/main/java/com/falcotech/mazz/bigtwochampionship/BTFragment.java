@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.falcotech.mazz.bigtwochampionship.rx_prefs.RxSharedPreferences;
+
 import javax.inject.Inject;
 
 /**
@@ -16,10 +18,13 @@ public abstract class BTFragment extends Fragment{
     @Inject
     ActivityTitleController activityTitleController;
 
+    @Inject
+    RxSharedPreferences rxSharedPreferences;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("DEBUG", "BTFragment injecting");
+        //Log.d("DEBUG", "BTFragment injecting");
 
     }
 

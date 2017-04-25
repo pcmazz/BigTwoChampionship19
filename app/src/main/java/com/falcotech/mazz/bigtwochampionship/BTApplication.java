@@ -2,7 +2,10 @@ package com.falcotech.mazz.bigtwochampionship;
 
 import android.app.Application;
 
+import com.falcotech.mazz.bigtwochampionship.rx_prefs.RxSharedPreferences;
 import com.squareup.leakcanary.LeakCanary;
+
+import javax.inject.Inject;
 
 /**
  * Created by phima on 4/21/2017.
@@ -10,6 +13,8 @@ import com.squareup.leakcanary.LeakCanary;
 
 public class BTApplication extends Application {
     private BTApplicationComponent applicationComponent;
+
+
 
     @Override
     public void onCreate() {

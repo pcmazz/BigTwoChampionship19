@@ -2,6 +2,8 @@ package com.falcotech.mazz.bigtwochampionship;
 
 import android.content.Context;
 
+import com.falcotech.mazz.bigtwochampionship.rx_prefs.RxSharedPreferences;
+
 import javax.inject.Singleton;
 
 import dagger.Component;
@@ -19,4 +21,5 @@ public interface BTApplicationComponent {
     ThreadExecutor threadExecutor();
     PostExecutionThread postExecutionThread();
     GameRepository gameRepository();
+    RxSharedPreferences rxSharedPreferences();
 }

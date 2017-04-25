@@ -2,6 +2,8 @@ package com.falcotech.mazz.bigtwochampionship;
 
 import android.content.Context;
 
+import com.falcotech.mazz.bigtwochampionship.rx_prefs.RxSharedPreferences;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -42,4 +44,11 @@ public class BTApplicationModule {
     GameRepository providesGameRepository(GameDataRepository gameDataRepository){
         return gameDataRepository;
     }
+
+    @Provides
+    @Singleton
+    RxSharedPreferences providesRxSharedPreferences(){
+        return RxSharedPreferences.create(application.getSharedPreferences(Utils.BIG_PREFS, Context.MODE_PRIVATE));
+    }
+
 }

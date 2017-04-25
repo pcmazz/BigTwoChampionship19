@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 import javax.inject.Inject;
 
+import butterknife.ButterKnife;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
+
 import static android.view.Gravity.CENTER;
 
 /**
@@ -42,6 +46,7 @@ public class TestGameFragment extends BTFragment{
         TextView tv = new TextView(getActivity());
         tv.setGravity(CENTER);
         tv.setText("Hello, World");
+        ButterKnife.bind(this, tv);
         return tv;
     }
 
@@ -51,7 +56,8 @@ public class TestGameFragment extends BTFragment{
         if(this.activityTitleController != null){
             this.activityTitleController.setTitle("ROCK HARD COCKS");
         }
-        rhc();
+        //rhc();
+        testRx();
     }
 
     private void rhc(){
@@ -61,6 +67,30 @@ public class TestGameFragment extends BTFragment{
             Log.d("DEBUG", "getGamePresenter = nhull");
         }
 
+    }
+
+    private void testRx(){
+        rxSharedPreferences.getString(Utils.DUMMY).asObservable().subscribe(new Observer<String>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(String s) {
+                Utils.bugger(TestGameFragment.this.getClass(), "testRx", "s = " + s);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
     }
 
 }
