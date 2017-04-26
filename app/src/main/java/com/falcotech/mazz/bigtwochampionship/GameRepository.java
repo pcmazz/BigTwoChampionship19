@@ -1,5 +1,7 @@
 package com.falcotech.mazz.bigtwochampionship;
 
+import com.falcotech.mazz.bigtwochampionship.models.Game;
+
 import java.util.List;
 
 import io.reactivex.Observable;

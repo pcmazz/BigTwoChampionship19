@@ -2,6 +2,8 @@ package com.falcotech.mazz.bigtwochampionship;
 
 import android.app.Activity;
 
+import com.falcotech.mazz.bigtwochampionship.core.PerActivity;
+
 import javax.inject.Inject;
 
 /**

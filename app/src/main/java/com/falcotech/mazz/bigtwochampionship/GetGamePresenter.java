@@ -2,6 +2,11 @@ package com.falcotech.mazz.bigtwochampionship;
 
 import android.util.Log;
 
+import com.falcotech.mazz.bigtwochampionship.core.PerActivity;
+import com.falcotech.mazz.bigtwochampionship.flow.Presenter;
+import com.falcotech.mazz.bigtwochampionship.models.Game;
+import com.falcotech.mazz.bigtwochampionship.reactive.DefaultObserver;
+
 import javax.inject.Inject;
 
 /**
@@ -9,7 +14,7 @@ import javax.inject.Inject;
  */
 
 @PerActivity
-public class GetGamePresenter implements Presenter{
+public class GetGamePresenter implements Presenter {
     private final GetGame getGame;
 
     @Inject
@@ -40,7 +45,7 @@ public class GetGamePresenter implements Presenter{
         this.getGame.execute(new GameObserver(), GetGame.Params.forGame("Game~0"));
     }
 
-    private final class GameObserver extends DefaultObserver<Game>{
+    private final class GameObserver extends DefaultObserver<Game> {
         @Override
         public void onNext(Game game) {
             Log.d("DEBUG", "GameObserver onNext game = " + game);
