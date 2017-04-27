@@ -21,4 +21,5 @@ public class DefaultObserver<T> extends DisposableObserver<T>{
     public void onComplete() {
 
     }
+
 }

@@ -21,16 +21,7 @@ public class Hand {
         handSize = cards.size();
     }
 
-    @Override
-    protected void finalize() throws Throwable {
-        if(cards != null){
-            for(Card card : cards){
-                card.finalize();
-            }
-        }
-        cards = null;
-        super.finalize();
-    }
+
 
     @Exclude
     public boolean isGreater(Hand hand) {

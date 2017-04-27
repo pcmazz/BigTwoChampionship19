@@ -11,7 +11,10 @@ import com.falcotech.mazz.bigtwochampionship.core.BTActivity;
 import com.falcotech.mazz.bigtwochampionship.flow.component.DaggerGameActivityComponent;
 import com.falcotech.mazz.bigtwochampionship.flow.component.GameActivityComponent;
 import com.falcotech.mazz.bigtwochampionship.flow.HasComponent;
+import com.falcotech.mazz.bigtwochampionship.flow.fragment.PlayerCardFragment;
+import com.falcotech.mazz.bigtwochampionship.flow.fragment.PlayerHandFragment;
 import com.falcotech.mazz.bigtwochampionship.flow.fragment.TestGameFragment;
+import com.falcotech.mazz.bigtwochampionship.models.Deck;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -29,12 +32,15 @@ public class GameActivity extends BTActivity implements HasComponent<GameActivit
 
    @OnClick(R.id.btnGameTest)
    public void submit(){
-       rxSharedPreferences.getString(Utils.PLAYER_CARDS).set("ANUS");
+       //rxSharedPreferences.getString(Utils.PLAYER_CARDS).set("ANUS");
+       this.removeFragment(R.id.flHandCards);
+       testFrag();
    }
 
     @OnClick(R.id.btnGameTest2)
     public void submit2(){
-        rxSharedPreferences.getString(Utils.DUMMY).set("HEADFUCK");
+        //rxSharedPreferences.getString(Utils.DUMMY).set("HEADFUCK");
+        this.removeFragment(R.id.flHandCards);
     }
 
 
@@ -52,7 +58,7 @@ public class GameActivity extends BTActivity implements HasComponent<GameActivit
         this.initializeInjector();
         ButterKnife.bind(this);
         if(savedInstanceState == null){
-            testFrag();
+            //testFrag();
         }
 
     }
@@ -92,8 +98,9 @@ public class GameActivity extends BTActivity implements HasComponent<GameActivit
     }
 
     private void testFrag(){
-        testRx();
-        this.addFragment(android.R.id.content, new TestGameFragment());
+        //testRx();
+        Deck deck = new Deck();
+        this.addFragment(R.id.flHandCards, PlayerHandFragment.initialize(deck.dealPlayer()));
     }
 
 

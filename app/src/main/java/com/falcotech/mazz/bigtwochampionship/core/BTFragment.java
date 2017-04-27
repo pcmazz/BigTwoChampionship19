@@ -34,6 +34,12 @@ public abstract class BTFragment extends Fragment{
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        BTApplication.instance.watch(this);
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
@@ -50,4 +56,9 @@ public abstract class BTFragment extends Fragment{
     protected <C> C getComponent(Class<C> componentType) {
         return componentType.cast(((HasComponent<C>) getActivity()).getComponent());
     }
+
+    public RxSharedPreferences getRxSharedPreferences(){
+        return ((BTActivity)getActivity()).getRxSharedPreferences();
+    }
+
 }

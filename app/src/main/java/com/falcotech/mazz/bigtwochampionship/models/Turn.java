@@ -18,14 +18,7 @@ public class Turn {
         this.play = play;
     }
 
-    @Override
-    protected void finalize() throws Throwable {
-        if(play != null){
-            play.finalize();
-            play = null;
-        }
-        super.finalize();
-    }
+
 
     public int getTurnNum() {
         return turnNum;

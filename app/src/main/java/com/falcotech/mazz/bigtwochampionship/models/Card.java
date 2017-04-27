@@ -1,5 +1,6 @@
 package com.falcotech.mazz.bigtwochampionship.models;
 
+import com.falcotech.mazz.bigtwochampionship.core.BTApplication;
 import com.google.firebase.database.Exclude;
 
 import java.io.Serializable;
@@ -14,12 +15,10 @@ public class Card implements Comparable<Card>, Serializable {
     private int suit;
 
     public Card() {
+
     }
 
-    @Override
-    public void finalize() throws Throwable {
-        super.finalize();
-    }
+
 
     public Card(String name) {
         //Log.d("DEBUG", "Card name = " + name);

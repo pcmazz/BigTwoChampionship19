@@ -2,6 +2,7 @@ package com.falcotech.mazz.bigtwochampionship.core;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.falcotech.mazz.bigtwochampionship.flow.Navigator;
@@ -38,11 +39,29 @@ public abstract class BTActivity extends AppCompatActivity {
                 .commit();
     }
 
+    protected void removeFragment(int containerId){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = fragmentManager.findFragmentById(containerId);
+        if(fragment != null && fragment.isVisible()){
+            fragmentManager.beginTransaction()
+                    .remove(fragment)
+                    .commit();
+        }
+
+
+    }
+
+
+
     protected BTApplicationComponent getApplicationComponent() {
         return ((BTApplication)getApplication()).getApplicationComponent();
     }
 
     protected BTActivityModule getActivityModule() {
         return new BTActivityModule(this);
+    }
+
+    public RxSharedPreferences getRxSharedPreferences(){
+        return rxSharedPreferences;
     }
 }

@@ -32,16 +32,7 @@ public class Player {
         this.points = points;
     }
 
-    @Override
-    protected void finalize() throws Throwable {
-        if(cards != null){
-            for(Card card : cards){
-                card.finalize();
-            }
-        }
-        cards = null;
-        super.finalize();
-    }
+
 
     public String getName() {
         return name;

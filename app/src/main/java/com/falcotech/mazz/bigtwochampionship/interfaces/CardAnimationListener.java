@@ -1,4 +1,4 @@
-package com.falcotech.mazz.bigtwochampionship;
+package com.falcotech.mazz.bigtwochampionship.interfaces;
 
 import com.falcotech.mazz.bigtwochampionship.models.Card;
 

@@ -2,7 +2,14 @@ package com.falcotech.mazz.bigtwochampionship.custom_views;
 
 import android.content.Context;
 
+import com.falcotech.mazz.bigtwochampionship.Utils;
 import com.falcotech.mazz.bigtwochampionship.models.Card;
+import com.falcotech.mazz.bigtwochampionship.reactive.rx_prefs.RxSharedPreferences;
+
+import javax.inject.Inject;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by phima on 4/24/2017.
@@ -10,9 +17,19 @@ import com.falcotech.mazz.bigtwochampionship.models.Card;
 
 public class PlayerCardView extends CardView{
 
+
+
     public PlayerCardView(Context context, Card card) {
         super(context, card);
+        ButterKnife.bind(this);
     }
+
+    public PlayerCardView(Context context, Card card, RxSharedPreferences rxPrefs) {
+        super(context, card, rxPrefs);
+        ButterKnife.bind(this);
+    }
+
+
 
     @Override
     public int getImgId(boolean front) {
@@ -31,9 +48,14 @@ public class PlayerCardView extends CardView{
     @Override
     public void measureAction() {
         int width = this.getMeasuredWidth();
-        /*RxSharedPreferences rxPrefs = RxSharedPreferences.create(getContext().getSharedPreferences(Utils.BIG_PREFS, Context.MODE_PRIVATE));
+        Utils.bugger(getClass(), "measureAction", "width = " + width);
         if(width > rxPrefs.getInteger(Utils.PLAYER_CARD_WIDTH).get()){
             rxPrefs.getInteger(Utils.PLAYER_CARD_WIDTH).set(width);
-        }*/
+        }
+    }
+
+    @OnClick
+    public void onClick(){
+        Utils.bugger(getClass(), "onClick", "clicky");
     }
 }
