@@ -51,6 +51,7 @@ public class PlayerHandView extends HandView{
         if(width > rxPrefs.getInteger(Utils.PLAYER_SCREEN_WIDTH).get()){
             rxPrefs.getInteger(Utils.PLAYER_SCREEN_WIDTH).set(width);
         }
+        //rxPrefs.getInteger(Utils.PLAYER_SCREEN_WIDTH).set(2550);
     }
 
     @Override
@@ -58,9 +59,9 @@ public class PlayerHandView extends HandView{
         int totalCards = cards.size();
 
         int maxCards = rxPrefs.getInteger(Utils.PLAYER_CARD_WIDTH, 216).get() * totalCards;
-        Utils.bugger(getClass(), "estimateTotalWidth", "maxCards = " + maxCards);
-        Utils.bugger(getClass(), "estimateTotalWidth", "getRatio() = " + getRatio());
-        Utils.bugger(getClass(), "estimateTotalWidth", "totalCards = " + totalCards);
+        //Utils.bugger(getClass(), "estimateTotalWidth", "maxCards = " + maxCards);
+        //Utils.bugger(getClass(), "estimateTotalWidth", "getRatio() = " + getRatio());
+        //Utils.bugger(getClass(), "estimateTotalWidth", "totalCards = " + totalCards);
         int result = maxCards - (getRatio() * (totalCards - 1));
         Utils.bugger(getClass(), "estimateTotalWidth", "result = " + result);
         return result;
@@ -102,7 +103,7 @@ public class PlayerHandView extends HandView{
         }
 
         int cardWidth = rxPrefs.getInteger(Utils.PLAYER_CARD_WIDTH, 216).get();
-        int totalWidth = (rxPrefs.getInteger(Utils.PLAYER_SCREEN_WIDTH, 2400).get() - (2 * cardWidth)) - 50;
+        int totalWidth = (rxPrefs.getInteger(Utils.PLAYER_SCREEN_WIDTH, 2550).get() - (2 * cardWidth)) - 50;
         int singleSpace = totalWidth/totalCards;
         return cardWidth - singleSpace;
     }

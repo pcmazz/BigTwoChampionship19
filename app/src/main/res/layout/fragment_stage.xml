@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivCardWest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/card_back_red_small"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNameWest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="West"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivCardWest" />
+
+    <TextView
+        android:id="@+id/tvCountWest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_count"
+        app:layout_constraintBottom_toBottomOf="@id/ivCardWest"
+        app:layout_constraintLeft_toLeftOf="@id/ivCardWest"
+        app:layout_constraintRight_toRightOf="@id/ivCardWest"
+        app:layout_constraintTop_toTopOf="@id/ivCardWest" />
+    <ImageView
+        android:id="@+id/ivChipWest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/pocker_chip_very_small"
+        app:layout_constraintTop_toTopOf="@id/ivCardWest"
+        app:layout_constraintBottom_toBottomOf="@id/ivCardWest"
+        app:layout_constraintLeft_toRightOf="@id/ivCardWest" />
+
+    <ImageView
+        android:id="@+id/ivCardEast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/card_back_red_small"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+    <TextView
+        android:id="@+id/tvNameEast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="East"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivCardEast"/>
+
+    <TextView
+        android:id="@+id/tvCountEast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_count"
+        app:layout_constraintBottom_toBottomOf="@id/ivCardEast"
+        app:layout_constraintLeft_toLeftOf="@id/ivCardEast"
+        app:layout_constraintRight_toRightOf="@id/ivCardEast"
+        app:layout_constraintTop_toTopOf="@id/ivCardEast" />
+    <ImageView
+        android:id="@+id/ivChipEast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/pocker_chip_very_small"
+        app:layout_constraintTop_toTopOf="@id/ivCardEast"
+        app:layout_constraintBottom_toBottomOf="@id/ivCardEast"
+        app:layout_constraintRight_toLeftOf="@id/ivCardEast" />
+    <TextView
+        android:id="@+id/tvNameNorth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="North"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivCardNorth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/card_back_red_small"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNameNorth"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCountNorth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_count"
+        app:layout_constraintBottom_toBottomOf="@id/ivCardNorth"
+        app:layout_constraintLeft_toLeftOf="@id/ivCardNorth"
+        app:layout_constraintRight_toRightOf="@id/ivCardNorth"
+        app:layout_constraintTop_toTopOf="@id/ivCardNorth" />
+    <ImageView
+        android:id="@+id/ivChipNorth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/pocker_chip_very_small"
+        app:layout_constraintLeft_toLeftOf="@id/ivCardNorth"
+        app:layout_constraintRight_toRightOf="@id/ivCardNorth"
+        app:layout_constraintTop_toBottomOf="@id/ivCardNorth" />
+
+
+    <FrameLayout
+        android:id="@+id/flTableCards"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/ivCardWest"
+        app:layout_constraintLeft_toRightOf="@id/ivChipWest"
+        app:layout_constraintRight_toLeftOf="@id/ivChipEast"
+        app:layout_constraintTop_toBottomOf="@id/ivChipNorth">
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

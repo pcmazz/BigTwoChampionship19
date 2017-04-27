@@ -9,6 +9,7 @@ import javax.inject.Singleton;
 
 /**
  * Created by phima on 4/24/2017.
+ * Need to make the table a big activity that has cards and chips and all
  */
 @Singleton
 public final class Utils {
