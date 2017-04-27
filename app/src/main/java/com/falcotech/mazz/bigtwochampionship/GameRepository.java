@@ -14,5 +14,5 @@ public interface GameRepository {
 
     Observable<Game> game(final String gameId);
 
-    Observable<List<Game>> games();
+    Observable<Game> games();
 }

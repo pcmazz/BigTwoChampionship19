@@ -37,12 +37,33 @@ public abstract class BTActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .add(containerId, fragment)
                 .commit();
+
+    }
+
+    protected void addFragment(String tag, Fragment fragment) {
+        //component().inject(fragment);
+        //component().inject(new ActivityTitleController(this));
+        getSupportFragmentManager().beginTransaction()
+                .add(fragment, tag)
+                .commit();
+
     }
 
     protected void removeFragment(int containerId){
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentById(containerId);
-        if(fragment != null && fragment.isVisible()){
+        if(fragment != null){
+            fragmentManager.beginTransaction()
+                    .remove(fragment)
+                    .commit();
+        }
+
+
+    }
+    protected void removeFragment(String tag){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = fragmentManager.findFragmentByTag(tag);
+        if(fragment != null){
             fragmentManager.beginTransaction()
                     .remove(fragment)
                     .commit();

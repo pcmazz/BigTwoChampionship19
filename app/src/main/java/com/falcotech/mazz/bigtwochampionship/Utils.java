@@ -11,7 +11,6 @@ import javax.inject.Singleton;
  * Created by phima on 4/24/2017.
  * Need to make the table a big activity that has cards and chips and all
  */
-@Singleton
 public final class Utils {
     public static final String BIG_PREFS = "bigPrefs";
     public static final String ACTIVITY_FOCUS = "activity_focus";
@@ -20,11 +19,10 @@ public final class Utils {
     public static final String TABLE_SCREEN_WIDTH = "screen_width";
     public static final String TABLE_CARD_WIDTH = "card_width";
     public static final String PLAYER_CARDS = "player_cards";
+    public static final String GAME_ID = "game_id";
     public static final String DUMMY = "dummy";
 
-    @Inject
-    public Utils() {
-    }
+
 
     /**
      * Toggles the Log debugging for each class. Defaults to true

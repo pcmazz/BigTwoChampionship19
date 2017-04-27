@@ -37,18 +37,19 @@ public class GetGamePresenter implements Presenter {
         this.getGame.dispose();
     }
 
-    public void initialize(){
-        this.doItBaby();
+    public void initialize(String gameId){
+        this.doItBaby(gameId);
     }
 
-    private void doItBaby(){
-        this.getGame.execute(new GameObserver(), GetGame.Params.forGame("Game~0"));
+    private void doItBaby(String gameId){
+        this.getGame.execute(new GameObserver(), GetGame.Params.forGame(gameId));
     }
 
     private final class GameObserver extends DefaultObserver<Game> {
         @Override
         public void onNext(Game game) {
-            Log.d("DEBUG", "GameObserver onNext game = " + game);
+            Utils.bugger(GetGamePresenter.class, "GameObserver - onNext", "game = " + game);
+            dispose();
         }
 
         @Override

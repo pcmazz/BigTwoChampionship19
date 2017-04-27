@@ -9,7 +9,7 @@ import java.util.List;
  */
 
 public class Game{
-    private int id;
+    private String id;
     private String createdAt;
     private String lastUpdated;
     private boolean gameLive;
@@ -27,7 +27,7 @@ public class Game{
     public Game() {
     }
 
-    public Game(int id, String createdAt, String lastUpdated, boolean gameLive, boolean roundLive, boolean excluded, int turnPlayerNum, int startPlayerNum, int roundNum, List<Turn> turns, Player playerOne, Player playerTwo, Player playerThree, Player playerFour) {
+    public Game(String id, String createdAt, String lastUpdated, boolean gameLive, boolean roundLive, boolean excluded, int turnPlayerNum, int startPlayerNum, int roundNum, List<Turn> turns, Player playerOne, Player playerTwo, Player playerThree, Player playerFour) {
         this.id = id;
         this.createdAt = createdAt;
         this.lastUpdated = lastUpdated;
@@ -106,11 +106,11 @@ public class Game{
         return null;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

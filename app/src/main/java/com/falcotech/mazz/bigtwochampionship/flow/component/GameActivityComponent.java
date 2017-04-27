@@ -4,6 +4,8 @@ import com.falcotech.mazz.bigtwochampionship.core.BTActivityComponent;
 import com.falcotech.mazz.bigtwochampionship.core.BTActivityModule;
 import com.falcotech.mazz.bigtwochampionship.core.BTApplicationComponent;
 import com.falcotech.mazz.bigtwochampionship.core.PerActivity;
+import com.falcotech.mazz.bigtwochampionship.flow.activity.GameActivity;
+import com.falcotech.mazz.bigtwochampionship.flow.fragment.DatabaseUpkeepFragment;
 import com.falcotech.mazz.bigtwochampionship.flow.fragment.PlayerCardFragment;
 import com.falcotech.mazz.bigtwochampionship.flow.fragment.PlayerHandFragment;
 import com.falcotech.mazz.bigtwochampionship.flow.fragment.StageFragment;
@@ -21,4 +23,5 @@ public interface GameActivityComponent extends BTActivityComponent {
     void inject(TestGameFragment testGameFragment);
     void inject(PlayerHandFragment PlayerHandFragment);
     void inject(StageFragment stageFragment);
+    void inject(DatabaseUpkeepFragment databaseUpkeepFragment);
 }

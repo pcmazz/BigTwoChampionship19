@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.falcotech.mazz.bigtwochampionship.GetGamePresenter;
+import com.falcotech.mazz.bigtwochampionship.GetGamesPresenter;
 import com.falcotech.mazz.bigtwochampionship.Utils;
 import com.falcotech.mazz.bigtwochampionship.core.BTApplication;
 import com.falcotech.mazz.bigtwochampionship.core.BTFragment;
@@ -18,6 +20,8 @@ import com.squareup.leakcanary.RefWatcher;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.ButterKnife;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -27,6 +31,10 @@ import io.reactivex.disposables.Disposable;
  */
 
 public class PlayerHandFragment extends BTFragment{
+   /* @Inject
+    GetGamePresenter getGamePresenter;
+    @Inject
+    GetGamesPresenter getGamesPresenter;*/
     private static final String PARAM_CARDS = "param_cards";
 
     public PlayerHandFragment() {
@@ -46,9 +54,20 @@ public class PlayerHandFragment extends BTFragment{
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+       /* if(this.getGamesPresenter != null){
+            getGamesPresenter.initialize();
+        }else{
+            Utils.bugger(getClass(), "onResume", "getGamesPresenter = null...");
+        }*/
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         this.getComponent(GameActivityComponent.class).inject(this);
+
     }
 
     @Nullable

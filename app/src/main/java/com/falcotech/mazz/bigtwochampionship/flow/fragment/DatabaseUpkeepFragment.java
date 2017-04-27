@@ -5,22 +5,26 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.falcotech.mazz.bigtwochampionship.R;
+import com.falcotech.mazz.bigtwochampionship.DatabaseCleaner;
+import com.falcotech.mazz.bigtwochampionship.Utils;
 import com.falcotech.mazz.bigtwochampionship.core.BTFragment;
 import com.falcotech.mazz.bigtwochampionship.flow.component.GameActivityComponent;
 
-import butterknife.ButterKnife;
-import io.reactivex.Completable;
-import io.reactivex.CompletableEmitter;
-import io.reactivex.CompletableOnSubscribe;
+import javax.inject.Inject;
 
 /**
- * Created by phima on 4/26/2017.
+ * Created by phima on 4/27/2017.
  */
 
-public class StageFragment extends BTFragment{
+public class DatabaseUpkeepFragment extends BTFragment{
+
+    @Inject
+    DatabaseCleaner databaseCleaner;
+
+    public DatabaseUpkeepFragment() {
+        setRetainInstance(true);
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,26 +41,23 @@ public class StageFragment extends BTFragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View fragmentView = inflater.inflate(R.layout.fragment_stage, container, false);
-        ButterKnife.bind(this, fragmentView);
-        return fragmentView;
+        return null;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        test().subscribe();
+        if(this.databaseCleaner != null){
+            databaseCleaner.initialize();
+        }else{
+            Utils.bugger(getClass(), "onResume", "databaseCleaner = null...");
+        }
     }
 
-    private Completable test(){
-        return Completable.create(new CompletableOnSubscribe() {
-            @Override
-            public void subscribe(CompletableEmitter e) throws Exception {
-                TextView westName = ButterKnife.findById(getView(), R.id.tvNameWest);
-                westName.setText("COCK MASTER");
-                e.onComplete();
-            }
-        });
-
+    @Override
+    public void onDestroy() {
+        Utils.bugger(getClass(), "onDestroy", "enter");
+        super.onDestroy();
+        this.databaseCleaner.destroy();
     }
 }

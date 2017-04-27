@@ -5,17 +5,24 @@ import android.content.Intent;
 import android.os.Bundle;
 
 
+import com.falcotech.mazz.bigtwochampionship.GameFactory;
+import com.falcotech.mazz.bigtwochampionship.GetGamePresenter;
 import com.falcotech.mazz.bigtwochampionship.R;
 import com.falcotech.mazz.bigtwochampionship.Utils;
 import com.falcotech.mazz.bigtwochampionship.core.BTActivity;
+
 import com.falcotech.mazz.bigtwochampionship.flow.component.DaggerGameActivityComponent;
 import com.falcotech.mazz.bigtwochampionship.flow.component.GameActivityComponent;
 import com.falcotech.mazz.bigtwochampionship.flow.HasComponent;
-import com.falcotech.mazz.bigtwochampionship.flow.fragment.PlayerCardFragment;
+
+import com.falcotech.mazz.bigtwochampionship.flow.fragment.DatabaseUpkeepFragment;
 import com.falcotech.mazz.bigtwochampionship.flow.fragment.PlayerHandFragment;
 import com.falcotech.mazz.bigtwochampionship.flow.fragment.StageFragment;
-import com.falcotech.mazz.bigtwochampionship.flow.fragment.TestGameFragment;
+
 import com.falcotech.mazz.bigtwochampionship.models.Deck;
+import com.google.firebase.database.FirebaseDatabase;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -23,12 +30,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
 public class GameActivity extends BTActivity implements HasComponent<GameActivityComponent> {
-   /* @BindView(R.id.tvTest)
-    TextView test;
-    @OnClick(R.id.btnTest)
-    public void submit(){
-        test.setText("COCKS");
-    }*/
+
 
 
    @OnClick(R.id.btnGamePass)
@@ -41,7 +43,13 @@ public class GameActivity extends BTActivity implements HasComponent<GameActivit
     @OnClick(R.id.btGamePlay)
     public void submit2(){
         //rxSharedPreferences.getString(Utils.DUMMY).set("HEADFUCK");
-        this.removeFragment(R.id.flHandCards);
+        //this.removeFragment(R.id.flHandCards);
+        if(getSupportFragmentManager().findFragmentByTag("cleanerFrag") != null){
+            this.removeFragment("cleanerFrag");
+        }else{
+            this.addFragment("cleanerFrag", new DatabaseUpkeepFragment());
+        }
+
     }
 
 
@@ -61,8 +69,15 @@ public class GameActivity extends BTActivity implements HasComponent<GameActivit
         if(savedInstanceState == null){
             //testFrag();
             this.addFragment(R.id.flStage, new StageFragment());
+            //soloGame();
         }
 
+    }
+
+    private void soloGame(){
+        String gameId = FirebaseDatabase.getInstance().getReference("games").push().getKey();
+        rxSharedPreferences.getString(Utils.GAME_ID).set(gameId);
+        FirebaseDatabase.getInstance().getReference("games").child(gameId).setValue(GameFactory.newSoloGame(gameId, "Falco"));
     }
 
 

@@ -67,7 +67,7 @@ public class TestGameFragment extends BTFragment {
 
     private void rhc(){
         if(this.getGamePresenter != null){
-            getGamePresenter.initialize();
+            getGamePresenter.initialize("");
         }else{
             Log.d("DEBUG", "getGamePresenter = nhull");
         }
