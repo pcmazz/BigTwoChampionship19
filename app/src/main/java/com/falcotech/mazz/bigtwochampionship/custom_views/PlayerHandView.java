@@ -98,8 +98,8 @@ public class PlayerHandView extends HandView{
     @Override
     public int getRatio() {
         int totalCards = cards.size();
-        if(totalCards < 8){
-            totalCards = 8;
+        if(totalCards < 9){
+            totalCards = 9;
         }
 
         int cardWidth = rxPrefs.getInteger(Utils.PLAYER_CARD_WIDTH, 216).get();
