@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.falcotech.mazz.bigtwochampionship.R;
 import com.falcotech.mazz.bigtwochampionship.TurnRunner;
+import com.falcotech.mazz.bigtwochampionship.Utils;
 import com.falcotech.mazz.bigtwochampionship.core.BTFragment;
 import com.falcotech.mazz.bigtwochampionship.flow.component.GameActivityComponent;
 
@@ -51,7 +52,12 @@ public class StageFragment extends BTFragment{
     @Override
     public void onResume() {
         super.onResume();
-        turnRunner.initialize(getView(), 8);
+        //turnRunner.initialize(getView(), 8);
+    }
+
+    public void runTurn(int turnNum){
+        Utils.bugger(getClass(), "runTurn", "turnNum = " + turnNum);
+        turnRunner.initialize(getView(), turnNum);
     }
 
 

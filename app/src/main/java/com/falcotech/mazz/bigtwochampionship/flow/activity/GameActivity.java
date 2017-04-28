@@ -88,6 +88,12 @@ public class GameActivity extends BTActivity implements HasComponent<GameActivit
 
     }
 
+    public void turnCompleted(int turnCompletedNum){
+        Utils.bugger(getClass(), "turnCompleted", "turnCompletedNum = " + turnCompletedNum);
+        int nextTurn = turnCompletedNum + 1;
+        ((StageFragment)getSupportFragmentManager().findFragmentById(R.id.flStage)).runTurn(nextTurn);
+    }
+
 
 
     private void testRx(){

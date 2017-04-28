@@ -3,6 +3,7 @@ package com.falcotech.mazz.bigtwochampionship;
 import android.app.Activity;
 
 import com.falcotech.mazz.bigtwochampionship.core.PerActivity;
+import com.falcotech.mazz.bigtwochampionship.flow.activity.GameActivity;
 
 import javax.inject.Inject;
 
@@ -21,6 +22,11 @@ public class ActivityTitleController {
 
     public void setTitle(CharSequence title) {
         activity.setTitle(title);
+    }
+
+    public void turnCompletedUpdate(int turnNumCompleted){
+        GameActivity gameActivity = (GameActivity)activity;
+        gameActivity.turnCompleted(turnNumCompleted);
     }
 }
 

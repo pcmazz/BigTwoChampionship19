@@ -37,12 +37,15 @@ public class TurnRunner implements Presenter{
         turnProcess.dispose();
     }
 
-    public void initialize(View view, int turnNum){
+    public void initialize(View view, final int turnNum){
         this.turnProcess.execute(new Action() {
             @Override
             public void run() throws Exception {
+                //THIS IS FUCKING BEAUTIFUL. NO LEAKS. MIMICK THIS SETUP FOR EVERYTHING
                 Utils.bugger(TurnRunner.class, "initialize", "onComplete");
-                turnProcess.dispose();
+                if(turnNum == 30){
+                    turnProcess.dispose();
+                }
             }
         }, TurnProcess.Params.forTurn(view, turnNum));
     }

@@ -8,10 +8,13 @@ import android.view.ViewGroup;
 
 import com.falcotech.mazz.bigtwochampionship.GameLogicRunner;
 import com.falcotech.mazz.bigtwochampionship.Utils;
+import com.falcotech.mazz.bigtwochampionship.WatchTurns;
 import com.falcotech.mazz.bigtwochampionship.core.BTFragment;
 import com.falcotech.mazz.bigtwochampionship.flow.component.GameActivityComponent;
 
 import javax.inject.Inject;
+
+import io.reactivex.observers.DisposableObserver;
 
 /**
  * Created by phima on 4/27/2017.
@@ -19,7 +22,7 @@ import javax.inject.Inject;
 public class GameLogicFragment extends BTFragment{
 
     @Inject
-    GameLogicRunner gameLogicRunner;
+    WatchTurns watchTurns;
 
     public GameLogicFragment() {
         setRetainInstance(true);
@@ -46,18 +49,40 @@ public class GameLogicFragment extends BTFragment{
     @Override
     public void onResume() {
         super.onResume();
-        if(gameLogicRunner != null){
+        testTurnWatcher();
+        /*if(gameLogicRunner != null){
             gameLogicRunner.initialize();
         }else{
             Utils.bugger(getClass(), "onResume", "gameLogicRunner = null...");
-        }
+        }*/
+    }
+
+    private void testTurnWatcher(){
+        this.watchTurns.execute(new DisposableObserver<Integer>() {
+            @Override
+            public void onNext(Integer integer) {
+                Utils.bugger(GameLogicFragment.class, "initialize", "onNext integer = " + integer);
+                showToastMessage("BOOOOONG");
+                activityTitleController.turnCompletedUpdate(integer);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Utils.bugger(GameLogicFragment.class, "initialize", "onError e = " + e);
+            }
+
+            @Override
+            public void onComplete() {
+                Utils.bugger(GameLogicFragment.class, "initialize", "onComplete");
+            }
+        }, WatchTurns.Params.forPrefs());
     }
 
     @Override
     public void onDestroy() {
         Utils.bugger(getClass(), "onDestroy", "enter");
         super.onDestroy();
-        this.gameLogicRunner.destroy();
+        //this.gameLogicRunner.destroy();
     }
 }
 
