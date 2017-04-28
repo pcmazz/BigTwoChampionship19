@@ -43,7 +43,7 @@ public class TurnFactoryData implements TurnFactory{
     }
 
     private Completable test(final View stage, int turnNum){
-        return Completable.concatArray(delay(2000),
+        return Completable.concatArray(delay(500),
                 moveChip(ButterKnife.findById(stage, R.id.ivChipWest), ButterKnife.findById(stage, R.id.ivChipNorth)),
                 finishTurn(turnNum));
         /*return Completable.create(new CompletableOnSubscribe() {

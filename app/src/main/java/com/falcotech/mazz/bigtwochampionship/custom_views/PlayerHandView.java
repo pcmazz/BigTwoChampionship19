@@ -9,9 +9,11 @@ import android.widget.RelativeLayout;
 
 import com.falcotech.mazz.bigtwochampionship.Utils;
 import com.falcotech.mazz.bigtwochampionship.models.Card;
+import com.falcotech.mazz.bigtwochampionship.models.PlayerCardLog;
 import com.falcotech.mazz.bigtwochampionship.reactive.RxUtils;
 import com.falcotech.mazz.bigtwochampionship.reactive.rx_prefs.RxSharedPreferences;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observer;
@@ -115,15 +117,24 @@ public class PlayerHandView extends HandView{
 
     @Override
     public void addFrames() {
+        makeLogList();
         for(int i = 0; i < cards.size(); i++){
             if(i == 0){
-                PlayerCardFrame playerCardFrame = new PlayerCardFrame(this.getContext(), cards.get(i), makeFrameParams(null));
+                PlayerCardFrame playerCardFrame = new PlayerCardFrame(this.getContext(), cards.get(i), makeFrameParams(null), rxPrefs);
                 this.addView(playerCardFrame);
             }else{
-                PlayerCardFrame playerCardFrame = new PlayerCardFrame(this.getContext(), cards.get(i), makeFrameParams(cards.get(i - 1)));
+                PlayerCardFrame playerCardFrame = new PlayerCardFrame(this.getContext(), cards.get(i), makeFrameParams(cards.get(i - 1)), rxPrefs);
                 this.addView(playerCardFrame);
             }
         }
+    }
+
+    private void makeLogList(){
+        List<PlayerCardLog> logs = new ArrayList<>();
+        for(Card card : cards){
+            logs.add(new PlayerCardLog(card));
+        }
+        rxPrefs.getPlayerCardLogList(Utils.PLAYER_CARDS).set(logs);
     }
 
     @Override

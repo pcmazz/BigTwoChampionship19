@@ -43,7 +43,7 @@ public class TurnRunner implements Presenter{
             public void run() throws Exception {
                 //THIS IS FUCKING BEAUTIFUL. NO LEAKS. MIMICK THIS SETUP FOR EVERYTHING
                 Utils.bugger(TurnRunner.class, "initialize", "onComplete");
-                if(turnNum == 30){
+                if(turnNum == 3){
                     turnProcess.dispose();
                 }
             }

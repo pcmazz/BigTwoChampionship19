@@ -54,8 +54,5 @@ public class PlayerCardView extends CardView{
         }
     }
 
-    @OnClick
-    public void onClick(){
-        Utils.bugger(getClass(), "onClick", "clicky");
-    }
+
 }

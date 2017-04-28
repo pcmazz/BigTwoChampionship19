@@ -9,6 +9,7 @@ import android.support.annotation.RequiresApi;
 import com.falcotech.mazz.bigtwochampionship.models.Card;
 import com.falcotech.mazz.bigtwochampionship.models.Game;
 import com.falcotech.mazz.bigtwochampionship.Utils;
+import com.falcotech.mazz.bigtwochampionship.models.PlayerCardLog;
 
 import java.util.Collections;
 import java.util.List;
@@ -224,7 +225,7 @@ public final class RxSharedPreferences {
         return new BTPreference<>(preferences, key, null, CardListAdapter.INSTANCE, keyChanges);
     }
 
-   /* public Preference<List<PlayerCardLog>> getPlayerCardLogList(@NonNull String key, @NonNull List<PlayerCardLog> defaultValue){
+    public Preference<List<PlayerCardLog>> getPlayerCardLogList(@NonNull String key, @NonNull List<PlayerCardLog> defaultValue){
         checkNotNull(key, "key == null");
         checkNotNull(defaultValue, "defaultValue == null");
         return new BTPreference<>(preferences, key, defaultValue, PlayerCardLogListAdapter.INSTANCE, keyChanges);
@@ -233,5 +234,5 @@ public final class RxSharedPreferences {
     public Preference<List<PlayerCardLog>> getPlayerCardLogList(@NonNull String key){
         checkNotNull(key, "key == null");
         return new BTPreference<>(preferences, key, null, PlayerCardLogListAdapter.INSTANCE, keyChanges);
-    }*/
+    }
 }

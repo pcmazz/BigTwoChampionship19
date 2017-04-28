@@ -53,12 +53,12 @@ public final class AnimationObservable extends Observable<Object> {
         @Override
         public void onAnimationEnd(Animation animation) {
             if(!isDisposed()){
-                //Utils.bugger(AnimationObservable.class, "onAnimationEnd", "not disposed");
+                Utils.bugger(AnimationObservable.class, "onAnimationEnd", "not disposed");
                 observer.onNext(AnimationLifecycle.END);
                 observer.onComplete();
                 this.dispose();
             }else{
-                //Utils.bugger(AnimationObservable.class, "onAnimationEnd", "disposed");
+                Utils.bugger(AnimationObservable.class, "onAnimationEnd", "disposed");
             }
 
         }
