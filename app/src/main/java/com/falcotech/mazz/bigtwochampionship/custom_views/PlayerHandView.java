@@ -31,7 +31,7 @@ public class PlayerHandView extends HandView{
 
     @Override
     public void deal() {
-        Utils.bugger(getClass(), "deal", "enter cards.size = " + cards.size());
+        //Utils.bugger(getClass(), "deal", "enter cards.size = " + cards.size());
         for(int i = 0; i < cards.size(); i++){
             final int index = i;
             Handler handler = new Handler();
@@ -47,7 +47,7 @@ public class PlayerHandView extends HandView{
     @Override
     public void measureAction() {
         int width = this.getMeasuredWidth();
-        Utils.bugger(getClass(), "measureAction", "measured width = " + width);
+        //Utils.bugger(getClass(), "measureAction", "measured width = " + width);
         if(width > rxPrefs.getInteger(Utils.PLAYER_SCREEN_WIDTH).get()){
             rxPrefs.getInteger(Utils.PLAYER_SCREEN_WIDTH).set(width);
         }
@@ -63,7 +63,7 @@ public class PlayerHandView extends HandView{
         //Utils.bugger(getClass(), "estimateTotalWidth", "getRatio() = " + getRatio());
         //Utils.bugger(getClass(), "estimateTotalWidth", "totalCards = " + totalCards);
         int result = maxCards - (getRatio() * (totalCards - 1));
-        Utils.bugger(getClass(), "estimateTotalWidth", "result = " + result);
+        //Utils.bugger(getClass(), "estimateTotalWidth", "result = " + result);
         return result;
     }
 
@@ -79,7 +79,7 @@ public class PlayerHandView extends HandView{
     public LayoutParams makeFrameParams(Card lastCard) {
         if(lastCard != null){
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-            Utils.bugger(getClass(), "makeParams", "ratio = " + getRatio());
+            //Utils.bugger(getClass(), "makeParams", "ratio = " + getRatio());
             params.setMargins(-getRatio(), 0, 0, 0);
             params.addRule(RelativeLayout.RIGHT_OF, getFrameId(lastCard));
             params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);

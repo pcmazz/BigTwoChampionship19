@@ -69,7 +69,7 @@ public class DatabaseCleaner implements Presenter{
             Date now = new Date();
             long diff = now.getTime() - gameDate.getTime();
             long hours = TimeUnit.HOURS.convert(diff, TimeUnit.MILLISECONDS);
-            Utils.bugger(GetGamesPresenter.class, "", "hours passed = " + hours);
+            Utils.bugger(DatabaseCleaner.class, "", "hours passed = " + hours);
             if(hours >= 2){
                 return true;
             }

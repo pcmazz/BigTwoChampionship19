@@ -48,7 +48,7 @@ public class PlayerCardView extends CardView{
     @Override
     public void measureAction() {
         int width = this.getMeasuredWidth();
-        Utils.bugger(getClass(), "measureAction", "width = " + width);
+        //Utils.bugger(getClass(), "measureAction", "width = " + width);
         if(width > rxPrefs.getInteger(Utils.PLAYER_CARD_WIDTH).get()){
             rxPrefs.getInteger(Utils.PLAYER_CARD_WIDTH).set(width);
         }

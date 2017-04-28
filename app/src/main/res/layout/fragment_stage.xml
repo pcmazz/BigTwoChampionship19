@@ -65,14 +65,16 @@
         app:layout_constraintLeft_toLeftOf="@id/ivCardEast"
         app:layout_constraintRight_toRightOf="@id/ivCardEast"
         app:layout_constraintTop_toTopOf="@id/ivCardEast" />
+
     <ImageView
         android:id="@+id/ivChipEast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/pocker_chip_very_small"
-        app:layout_constraintTop_toTopOf="@id/ivCardEast"
+        android:alpha="0"
         app:layout_constraintBottom_toBottomOf="@id/ivCardEast"
-        app:layout_constraintRight_toLeftOf="@id/ivCardEast" />
+        app:layout_constraintRight_toLeftOf="@id/ivCardEast"
+        app:layout_constraintTop_toTopOf="@id/ivCardEast"
+        app:srcCompat="@drawable/pocker_chip_very_small" />
     <TextView
         android:id="@+id/tvNameNorth"
         android:layout_width="wrap_content"
@@ -100,14 +102,16 @@
         app:layout_constraintLeft_toLeftOf="@id/ivCardNorth"
         app:layout_constraintRight_toRightOf="@id/ivCardNorth"
         app:layout_constraintTop_toTopOf="@id/ivCardNorth" />
+
     <ImageView
         android:id="@+id/ivChipNorth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/pocker_chip_very_small"
+        android:alpha="0"
         app:layout_constraintLeft_toLeftOf="@id/ivCardNorth"
         app:layout_constraintRight_toRightOf="@id/ivCardNorth"
-        app:layout_constraintTop_toBottomOf="@id/ivCardNorth" />
+        app:layout_constraintTop_toBottomOf="@id/ivCardNorth"
+        app:srcCompat="@drawable/pocker_chip_very_small" />
 
 
     <FrameLayout

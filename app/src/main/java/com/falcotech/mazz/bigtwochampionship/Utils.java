@@ -21,6 +21,7 @@ public final class Utils {
     public static final String PLAYER_CARDS = "player_cards";
     public static final String GAME_ID = "game_id";
     public static final String DUMMY = "dummy";
+    public static final String COMPLETED_TURNS = "completed_turns";
 
 
 

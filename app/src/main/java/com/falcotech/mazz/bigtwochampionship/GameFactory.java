@@ -16,6 +16,7 @@ public final class GameFactory {
 
     public static Game newSoloGame(String gameId, String myUsername){
         Game game = new Game();
+        game.setId(gameId);
         game.setGameLive(false);
         game.setRoundLive(false);
         game.setExcluded(true);

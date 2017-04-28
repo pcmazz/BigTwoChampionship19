@@ -58,7 +58,7 @@ public abstract class HandView extends RelativeLayout {
 
     private void kill(){
         //cards = null;
-        Utils.bugger(getClass(), "kill", "finish");
+        //Utils.bugger(getClass(), "kill", "finish");
     }
 
     protected int getFrameId(Card card){

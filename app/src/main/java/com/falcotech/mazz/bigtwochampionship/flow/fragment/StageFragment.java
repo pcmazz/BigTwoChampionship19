@@ -8,8 +8,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.falcotech.mazz.bigtwochampionship.R;
+import com.falcotech.mazz.bigtwochampionship.TurnRunner;
 import com.falcotech.mazz.bigtwochampionship.core.BTFragment;
 import com.falcotech.mazz.bigtwochampionship.flow.component.GameActivityComponent;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import io.reactivex.Completable;
@@ -21,6 +24,9 @@ import io.reactivex.CompletableOnSubscribe;
  */
 
 public class StageFragment extends BTFragment{
+    @Inject
+    TurnRunner turnRunner;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,8 +51,9 @@ public class StageFragment extends BTFragment{
     @Override
     public void onResume() {
         super.onResume();
-        test().subscribe();
+        turnRunner.initialize(getView(), 8);
     }
+
 
     private Completable test(){
         return Completable.create(new CompletableOnSubscribe() {

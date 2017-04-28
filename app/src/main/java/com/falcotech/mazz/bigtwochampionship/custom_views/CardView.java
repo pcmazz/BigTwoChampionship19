@@ -75,7 +75,7 @@ public abstract class CardView extends ViewFlipper {
         card = null;
         animOut = null;
         animIn = null;
-        Utils.bugger(getClass(), "kill", "finish");
+        //Utils.bugger(getClass(), "kill", "finish");
     }
 
     @Override
@@ -96,7 +96,7 @@ public abstract class CardView extends ViewFlipper {
     public abstract void measureAction();
 
     private void attachAction(){
-        Utils.bugger(getClass(), "attachAction", "enter");
+        //Utils.bugger(getClass(), "attachAction", "enter");
         bindAnimations();
         this.setInAnimation(animIn);
         this.setOutAnimation(animOut);

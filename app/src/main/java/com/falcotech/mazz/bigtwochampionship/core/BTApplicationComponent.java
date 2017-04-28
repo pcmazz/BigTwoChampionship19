@@ -3,6 +3,9 @@ package com.falcotech.mazz.bigtwochampionship.core;
 import android.content.Context;
 
 import com.falcotech.mazz.bigtwochampionship.GameRepository;
+import com.falcotech.mazz.bigtwochampionship.RxPrefRepository;
+import com.falcotech.mazz.bigtwochampionship.TurnFactory;
+import com.falcotech.mazz.bigtwochampionship.TurnFactoryData;
 import com.falcotech.mazz.bigtwochampionship.reactive.rx_prefs.RxSharedPreferences;
 
 import javax.inject.Singleton;
@@ -22,5 +25,7 @@ public interface BTApplicationComponent {
     ThreadExecutor threadExecutor();
     PostExecutionThread postExecutionThread();
     GameRepository gameRepository();
+    TurnFactory turnFactory();
+    RxPrefRepository rxPrefRepository();
     RxSharedPreferences rxSharedPreferences();
 }

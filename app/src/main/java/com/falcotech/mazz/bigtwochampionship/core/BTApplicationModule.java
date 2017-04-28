@@ -4,6 +4,10 @@ import android.content.Context;
 
 import com.falcotech.mazz.bigtwochampionship.GameDataRepository;
 import com.falcotech.mazz.bigtwochampionship.GameRepository;
+import com.falcotech.mazz.bigtwochampionship.RxPrefRepository;
+import com.falcotech.mazz.bigtwochampionship.RxPrefRepositoryData;
+import com.falcotech.mazz.bigtwochampionship.TurnFactory;
+import com.falcotech.mazz.bigtwochampionship.TurnFactoryData;
 import com.falcotech.mazz.bigtwochampionship.Utils;
 import com.falcotech.mazz.bigtwochampionship.reactive.rx_prefs.RxSharedPreferences;
 
@@ -46,6 +50,18 @@ public class BTApplicationModule {
     @Singleton
     GameRepository providesGameRepository(GameDataRepository gameDataRepository){
         return gameDataRepository;
+    }
+
+    @Provides
+    @Singleton
+    TurnFactory providesTurnFactory(TurnFactoryData turnFactoryData){
+        return turnFactoryData;
+    }
+
+    @Provides
+    @Singleton
+    RxPrefRepository providesRxPrefsRepository(RxPrefRepositoryData rxPrefRepositoryData){
+        return rxPrefRepositoryData;
     }
 
     @Provides

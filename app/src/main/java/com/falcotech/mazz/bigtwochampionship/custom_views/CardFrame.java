@@ -33,7 +33,7 @@ public abstract class CardFrame extends FrameLayout{
     public void kill(){
         card = null;
         layoutParams = null;
-        Utils.bugger(getClass(), "kill", "finish");
+        //Utils.bugger(getClass(), "kill", "finish");
     }
 
     @Override

@@ -11,11 +11,13 @@ import com.falcotech.mazz.bigtwochampionship.R;
 import com.falcotech.mazz.bigtwochampionship.Utils;
 import com.falcotech.mazz.bigtwochampionship.core.BTActivity;
 
+
 import com.falcotech.mazz.bigtwochampionship.flow.component.DaggerGameActivityComponent;
 import com.falcotech.mazz.bigtwochampionship.flow.component.GameActivityComponent;
 import com.falcotech.mazz.bigtwochampionship.flow.HasComponent;
 
 import com.falcotech.mazz.bigtwochampionship.flow.fragment.DatabaseUpkeepFragment;
+import com.falcotech.mazz.bigtwochampionship.flow.fragment.GameLogicFragment;
 import com.falcotech.mazz.bigtwochampionship.flow.fragment.PlayerHandFragment;
 import com.falcotech.mazz.bigtwochampionship.flow.fragment.StageFragment;
 
@@ -43,12 +45,8 @@ public class GameActivity extends BTActivity implements HasComponent<GameActivit
     @OnClick(R.id.btGamePlay)
     public void submit2(){
         //rxSharedPreferences.getString(Utils.DUMMY).set("HEADFUCK");
-        //this.removeFragment(R.id.flHandCards);
-        if(getSupportFragmentManager().findFragmentByTag("cleanerFrag") != null){
-            this.removeFragment("cleanerFrag");
-        }else{
-            this.addFragment("cleanerFrag", new DatabaseUpkeepFragment());
-        }
+        this.removeFragment(R.id.flHandCards);
+        this.removeFragment("cleanerFrag");
 
     }
 
@@ -68,16 +66,26 @@ public class GameActivity extends BTActivity implements HasComponent<GameActivit
         ButterKnife.bind(this);
         if(savedInstanceState == null){
             //testFrag();
-            this.addFragment(R.id.flStage, new StageFragment());
-            //soloGame();
+
+            soloGame();
         }
 
     }
 
     private void soloGame(){
+        /*if(getSupportFragmentManager().findFragmentByTag("cleanerFrag") != null){
+            this.removeFragment("cleanerFrag");
+        }else{
+            this.addFragment("cleanerFrag", new DatabaseUpkeepFragment());
+        }*/
+        this.addFragment("cleanerFrag", new DatabaseUpkeepFragment());
+        this.addFragment("gameLogic", new GameLogicFragment());
         String gameId = FirebaseDatabase.getInstance().getReference("games").push().getKey();
         rxSharedPreferences.getString(Utils.GAME_ID).set(gameId);
+        rxSharedPreferences.getInteger(Utils.COMPLETED_TURNS).set(0);
         FirebaseDatabase.getInstance().getReference("games").child(gameId).setValue(GameFactory.newSoloGame(gameId, "Falco"));
+        this.addFragment(R.id.flStage, new StageFragment());
+
     }
 
 
