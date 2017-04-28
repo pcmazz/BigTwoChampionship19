@@ -82,6 +82,10 @@ public final class GetGamesObservable extends Observable<Game> {
 
         }
 
+        private void debug(){
+            Utils.bugger(GetGamesObservable.class, "debug", "enter");
+            Utils.bugger(GetGamesObservable.class, "debug", "disposed = " + isDisposed());
+        }
 
     }
 }

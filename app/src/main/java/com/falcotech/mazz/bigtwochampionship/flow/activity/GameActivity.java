@@ -31,6 +31,9 @@ import butterknife.OnClick;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
+/**
+ * All game logic for creating, joining, leaving, and running a game
+ */
 public class GameActivity extends BTActivity implements HasComponent<GameActivityComponent> {
 
 
@@ -72,6 +75,9 @@ public class GameActivity extends BTActivity implements HasComponent<GameActivit
 
     }
 
+    /**
+     * Create a new solo game that is excluded from online players and start it
+     */
     private void soloGame(){
         /*if(getSupportFragmentManager().findFragmentByTag("cleanerFrag") != null){
             this.removeFragment("cleanerFrag");
@@ -79,12 +85,12 @@ public class GameActivity extends BTActivity implements HasComponent<GameActivit
             this.addFragment("cleanerFrag", new DatabaseUpkeepFragment());
         }*/
         this.addFragment("cleanerFrag", new DatabaseUpkeepFragment());
-        this.addFragment("gameLogic", new GameLogicFragment());
+        /*this.addFragment("gameLogic", new GameLogicFragment());
         String gameId = FirebaseDatabase.getInstance().getReference("games").push().getKey();
         rxSharedPreferences.getString(Utils.GAME_ID).set(gameId);
         rxSharedPreferences.getInteger(Utils.COMPLETED_TURNS).set(0);
         FirebaseDatabase.getInstance().getReference("games").child(gameId).setValue(GameFactory.newSoloGame(gameId, "Falco"));
-        this.addFragment(R.id.flStage, new StageFragment());
+        this.addFragment(R.id.flStage, new StageFragment());*/
 
     }
 

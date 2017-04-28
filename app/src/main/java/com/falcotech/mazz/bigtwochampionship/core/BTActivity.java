@@ -36,7 +36,7 @@ public abstract class BTActivity extends AppCompatActivity {
         //component().inject(new ActivityTitleController(this));
         getSupportFragmentManager().beginTransaction()
                 .add(containerId, fragment)
-                .commit();
+                .commitNow();
 
     }
 
@@ -45,7 +45,7 @@ public abstract class BTActivity extends AppCompatActivity {
         //component().inject(new ActivityTitleController(this));
         getSupportFragmentManager().beginTransaction()
                 .add(fragment, tag)
-                .commit();
+                .commitNow();
 
     }
 
@@ -55,7 +55,7 @@ public abstract class BTActivity extends AppCompatActivity {
         if(fragment != null){
             fragmentManager.beginTransaction()
                     .remove(fragment)
-                    .commit();
+                    .commitNow();
         }
 
 
@@ -66,7 +66,7 @@ public abstract class BTActivity extends AppCompatActivity {
         if(fragment != null){
             fragmentManager.beginTransaction()
                     .remove(fragment)
-                    .commit();
+                    .commitNow();
         }
 
 

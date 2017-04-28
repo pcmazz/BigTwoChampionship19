@@ -7,6 +7,8 @@ import android.content.Context;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
+import net.danlew.android.joda.JodaTimeAndroid;
+
 /**
  * Created by phima on 4/21/2017.
  */
@@ -21,6 +23,7 @@ public class BTApplication extends Application {
         super.onCreate();
         instance = this;
         this.initialize();
+        initializeJodaTime();
         this.installLeakCanary();
     }
 
@@ -32,6 +35,10 @@ public class BTApplication extends Application {
         this.applicationComponent = DaggerBTApplicationComponent.builder()
                 .bTApplicationModule(new BTApplicationModule(this))
                 .build();
+    }
+
+    private void initializeJodaTime(){
+        JodaTimeAndroid.init(this);
     }
 
     private void installLeakCanary(){

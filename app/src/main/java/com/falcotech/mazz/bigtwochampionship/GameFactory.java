@@ -5,6 +5,12 @@ import com.falcotech.mazz.bigtwochampionship.models.Deck;
 import com.falcotech.mazz.bigtwochampionship.models.Game;
 import com.falcotech.mazz.bigtwochampionship.models.Player;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.LocalDateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -54,7 +60,11 @@ public final class GameFactory {
    }
 
     private static String timestamp(){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
-        return simpleDateFormat.format(new Date());
+        DateTimeFormatter formatter = DateTimeFormat.forPattern("MM-dd-yyyy HH:mm:ss").withZone(DateTimeZone.forID("America/Chicago"));
+
+        DateTime now = DateTime.now(DateTimeZone.UTC);
+        Utils.bugger(GameFactory.class, "timestamp", "nowString = " + now.toString(formatter));
+
+        return now.toString(formatter);
     }
 }
